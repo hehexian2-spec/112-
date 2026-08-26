@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#ffc3dc">
+<title>梁婷婷 · LOVE YOU</title>
+<style>
+:root{
+  --pink:#ff5f9d;--pink2:#ff8fba;--pink3:#ffd0e2;--cream:#fff9fc;
+  --ink:#4b3040;--shadow:#d9467d;--soft:#fff0f6;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#ffc9df;color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+body{
+background:
+radial-gradient(circle at 20% 10%,rgba(255,255,255,.65),transparent 24%),
+radial-gradient(circle at 80% 18%,rgba(255,255,255,.45),transparent 22%),
+linear-gradient(155deg,#ffd8e8,#ffafd0);
+}
+.page{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom))}
+.hidden{display:none!important}
+.pixel-grid{position:absolute;inset:0;opacity:.28;pointer-events:none;background:
+repeating-linear-gradient(0deg,transparent 0 15px,rgba(255,255,255,.55) 15px 17px),
+repeating-linear-gradient(90deg,transparent 0 15px,rgba(255,255,255,.55) 15px 17px)}
+.card{
+position:relative;z-index:3;width:min(92vw,440px);padding:26px 20px;border-radius:26px;
+background:rgba(255,250,252,.9);border:4px solid rgba(255,255,255,.95);
+box-shadow:0 10px 0 rgba(217,70,125,.20),0 26px 70px rgba(145,46,91,.18);
+text-align:center;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+}
+.logo{font-size:64px;line-height:1;filter:drop-shadow(0 6px 0 rgba(130,60,90,.1));animation:bob 1.7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+h1{font-size:28px;margin:13px 0 7px;font-weight:900}
+.desc{font-size:14px;line-height:1.7;opacity:.7}
+input{
+width:100%;margin-top:20px;padding:15px 18px;border:3px solid #ffc3da;border-radius:15px;background:#fff;
+font-size:20px;text-align:center;letter-spacing:5px;outline:none;color:var(--ink);-webkit-appearance:none
+}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,95,157,.11)}
+.btn{
+width:100%;margin-top:14px;padding:14px 16px;border:0;border-radius:15px;color:white;
+font-size:17px;font-weight:900;background:linear-gradient(#ff88b8,#ff5f9d);box-shadow:0 6px 0 var(--shadow)
+}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--shadow)}
+.hint{height:22px;margin-top:9px;font-size:13px;color:#cf3e74}
+.decor{position:absolute;font-size:42px;opacity:.42;animation:float 5s ease-in-out infinite;pointer-events:none}
+@keyframes float{50%{transform:translateY(-13px)}}
+.d1{left:5%;top:8%}.d2{right:5%;top:13%;animation-delay:.9s}.d3{left:7%;bottom:8%;animation-delay:1.7s}.d4{right:6%;bottom:10%;animation-delay:2.5s}
+.dialog-line{min-height:34px;font-size:21px;font-weight:900;margin-top:12px}
+.dialog-sub{min-height:24px;font-size:14px;opacity:.67;margin-top:6px}
+.progress-shell{display:none;height:28px;margin:22px 0 6px;border:3px solid #ff9ec3;border-radius:10px;background:#ffe9f2;overflow:hidden}
+.progress{width:0;height:100%;background:linear-gradient(90deg,#ff91bb,#ff4e90);transition:width .35s ease}
+.percent{font-size:24px;font-weight:1000;margin-top:8px}
+.scan{font-size:12px;letter-spacing:2px;opacity:.55;margin-top:10px}
+.final{
+position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;
+background:radial-gradient(circle at center,#ffe5ef 0,#ffc0d9 48%,#ff9ec8 100%);
+overflow:hidden
+}
+.final-card{
+position:relative;z-index:4;width:min(92vw,460px);padding:27px 18px;border-radius:28px;
+background:rgba(255,255,255,.82);border:4px solid white;box-shadow:0 10px 0 rgba(211,58,117,.16),0 28px 70px rgba(150,40,90,.18);
+text-align:center
+}
+.name{font-size:34px;font-weight:1000;margin-top:4px}
+.infinity{font-size:56px;line-height:1;color:var(--pink);font-weight:1000;margin:11px 0 4px}
+.ily{font-size:39px;font-weight:1000;letter-spacing:2px}
+.copy{font-size:16px;line-height:1.9;margin-top:12px}
+.signature{font-size:14px;opacity:.62;margin-top:13px}
+.float-word{position:fixed;z-index:30;pointer-events:none;white-space:nowrap;font-weight:1000;
+animation:up 2.8s ease-out forwards;text-shadow:0 2px 0 rgba(255,255,255,.75)}
+@keyframes up{0%{opacity:0;transform:translateY(25px) scale(.7) rotate(-4deg)}15%{opacity:1}100%{opacity:0;transform:translateY(-220px) scale(1.35) rotate(6deg)}}
+.overlay{
+position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(46,34,48,.88);color:white;text-align:center;padding:24px
+}
+.overlay-box{font-weight:900;font-size:24px;line-height:1.7}
+.fade-in{animation:fade .55s ease both}
+@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+.shake{animation:shake .28s linear}
+@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}
+.spark{position:absolute;width:8px;height:8px;background:white;box-shadow:14px 5px white,27px -1px white;opacity:.75;animation:twinkle 1.6s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.2;transform:scale(.6)}}
+</style>
+</head>
+<body>
+
+<section class="page" id="lock">
+  <div class="pixel-grid"></div>
+  <div class="decor d1">🐱</div><div class="decor d2">😽</div><div class="decor d3">🐾</div><div class="decor d4">💗</div>
+  <div class="spark" style="left:17%;top:23%"></div>
+  <div class="spark" style="right:18%;top:30%;animation-delay:.7s"></div>
+
+  <div class="card fade-in" id="lockCard">
+    <div class="logo">🐱💌</div>
+    <h1>私人恋爱档案</h1>
+    <div class="desc">这里藏着一份只给梁婷婷看的小秘密。<br>请输入专属密码。</div>
+    <input id="pwd" type="password" inputmode="numeric" maxlength="12" placeholder="•••••••" autocomplete="off">
+    <button class="btn" id="enter">打开秘密</button>
+    <div class="hint" id="hint"></div>
+  </div>
+</section>
+
+<section class="page hidden" id="story">
+  <div class="pixel-grid"></div>
+  <div class="decor d1">🐱</div><div class="decor d2">💗</div><div class="decor d3">🐾</div><div class="decor d4">😽</div>
+  <div class="card fade-in" id="storyCard">
+    <div class="logo" id="storyCat">🐱</div>
+    <div class="dialog-line" id="line"></div>
+    <div class="dialog-sub" id="sub"></div>
+    <div class="progress-shell" id="progressShell"><div class="progress" id="progress"></div></div>
+    <div class="percent" id="percent"></div>
+    <div class="scan" id="scan"></div>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <div class="pixel-grid"></div>
+  <div class="final-card fade-in">
+    <div style="font-size:69px">😽💗</div>
+    <div class="name">梁婷婷</div>
+    <div class="infinity">∞%</div>
+    <div class="ily">LOVE YOU</div>
+    <div class="copy">
+      好感度已经彻底拉满。<br>
+      系统算不出我到底有多喜欢你。<br>
+      因为答案不是 100%，<br>
+      是每天都比昨天更多一点。<br><br>
+      <strong>梁婷婷，我爱你。</strong>
+    </div>
+    <button class="btn" id="again">再收一份爱 💞</button>
+    <div class="signature">From：那个一直喜欢你的人</div>
+  </div>
+</section>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-box">💗 LOVE YOU 💗<br><span style="font-size:16px;font-weight:600;opacity:.8">梁婷婷，今天也要开心。</span></div>
+</div>
+
+<script>
+(function(){
+  var PASSWORD="1219920";
+  var pwd=document.getElementById("pwd"), enter=document.getElementById("enter"), hint=document.getElementById("hint");
+  var lock=document.getElementById("lock"), story=document.getElementById("story"), final=document.getElementById("final");
+  var line=document.getElementById("line"), sub=document.getElementById("sub"), shell=document.getElementById("progressShell");
+  var progress=document.getElementById("progress"), percent=document.getElementById("percent"), scan=document.getElementById("scan");
+  var lockCard=document.getElementById("lockCard"), storyCat=document.getElementById("storyCat");
+
+  function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  function type(el,text,speed){
+    speed=speed||55;
+    return new Promise(function(resolve){
+      el.textContent=""; var i=0;
+      var t=setInterval(function(){
+        i++; el.textContent=text.slice(0,i);
+        if(i>=text.length){clearInterval(t);resolve()}
+      },speed);
+    });
+  }
+  function fail(){
+    hint.textContent="密码不对哦，小猫把门关上了 🐾";
+    lockCard.classList.remove("shake"); void lockCard.offsetWidth; lockCard.classList.add("shake");
+  }
+  async function begin(){
+    lock.classList.add("hidden");
+    story.classList.remove("hidden");
+
+    await type(line,"检测到一个特别的人……",65);
+    sub.textContent="正在读取心动档案";
+    scan.textContent="LOADING ···";
+    await sleep(850);
+
+    await type(line,"姓名：梁婷婷",85);
+    sub.textContent="身份确认成功 ✓";
+    scan.textContent="MATCHED";
+    storyCat.textContent="😺";
+    await sleep(1000);
+
+    line.textContent="正在计算好感度……";
+    sub.textContent="小猫正在认真运算，请不要关闭 🐾";
+    shell.style.display="block";
+    scan.textContent="CALCULATING LOVE";
+    var vals=[2,9,18,31,47,63,78,89,96,99];
+    for(var i=0;i<vals.length;i++){
+      progress.style.width=vals[i]+"%";
+      percent.textContent=vals[i]+"%";
+      await sleep(vals[i] < 80 ? 300 : 470);
+    }
+
+    await sleep(700);
+    sub.textContent="等等……数值还在继续上涨？";
+    scan.textContent="WARNING";
+    storyCat.textContent="🙀";
+    await sleep(750);
+
+    percent.textContent="100%";
+    await sleep(500);
+    percent.textContent="ERROR";
+    await sleep(600);
+    percent.textContent="∞%";
+    progress.style.width="100%";
+    line.textContent="好感度已溢出 💗";
+    sub.textContent="系统无法计算这么多喜欢。";
+    scan.textContent="LOVE LIMIT EXCEEDED";
+    storyCat.textContent="😽";
+    await sleep(1450);
+
+    story.classList.add("hidden");
+    final.style.display="flex";
+    burst(28);
+    rain();
+  }
+
+  enter.addEventListener("click",function(){ pwd.value===PASSWORD ? begin() : fail(); });
+  pwd.addEventListener("keydown",function(e){ if(e.key==="Enter") enter.click(); });
+
+  var words=["LOVE YOU","爱你","梁婷婷","💗","💕","💞","I LOVE YOU","😽","🐾","♡"];
+  function spawn(x,y,text){
+    var el=document.createElement("div");
+    el.className="float-word";
+    el.textContent=text || words[Math.floor(Math.random()*words.length)];
+    el.style.left=(x==null ? Math.random()*84+4 : x)+"vw";
+    el.style.top=(y==null ? Math.random()*35+58 : y)+"vh";
+    el.style.fontSize=(16+Math.random()*18)+"px";
+    document.body.appendChild(el);
+    setTimeout(function(){ if(el.parentNode)el.parentNode.removeChild(el); },2900);
+  }
+  function burst(n){for(var i=0;i<n;i++)(function(k){setTimeout(function(){spawn()},k*75)})(i)}
+  function rain(){
+    var c=0,t=setInterval(function(){spawn(Math.random()*88+2,95);c++;if(c>42)clearInterval(t)},150);
+  }
+
+  document.getElementById("again").addEventListener("click",function(){burst(24)});
+  final.addEventListener("pointerdown",function(e){
+    spawn(e.clientX/window.innerWidth*100,e.clientY/window.innerHeight*100,"💗");
+  });
+
+  var overlay=document.getElementById("overlay");
+  var presses=0;
+  document.querySelector(".final-card").addEventListener("dblclick",function(){
+    presses++;
+    overlay.style.display="flex";
+    setTimeout(function(){overlay.style.display="none"},1700);
+  });
+})();
+</script>
+</body>
+</html>
